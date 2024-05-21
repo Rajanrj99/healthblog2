@@ -1,0 +1,14 @@
+{# comment_partial.html #}
+<div class="card mb-2" id="comment-{{ comment.id }}">
+    <div class="card-body">
+        <p class="card-text">{{ comment.author }} said: "{{ comment.text }}"</p>
+        {% if request.user.is_authenticated and request.user == comment.author %}
+        <!-- Only comment authors can edit their comments -->
+        <button class="btn btn-primary edit-comment" data-id="{{ comment.id }}">Edit</button>
+        {% endif %}
+        {% if request.user == comment.author or request.user == comment.post.author %}
+        <!-- Comment authors, post authors, and superusers can delete comments -->
+        <button class="btn btn-danger delete-comment" data-id="{{ comment.id }}">Delete</button>
+        {% endif %}
+    </div>
+</div>

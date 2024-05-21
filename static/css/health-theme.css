@@ -1,0 +1,86 @@
+/* General body styles */
+body {
+    background-color: #f4f9f9; /* A very light bluish green, calming and easy on the eyes */
+    color: #333333; /* Standard dark grey that offers good contrast on light backgrounds */
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* Clean and modern font */
+}
+
+/* Navigation bar enhancements */
+.navbar {
+    background-color: #ffffff; /* White background for a clean and professional look */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for a touch of depth */
+}
+
+.nav-link {
+    color: #5cb85c; /* Soft green, often associated with health and wellness */
+    font-size: 1.1em; /* Slightly larger font size for easy readability */
+}
+
+.nav-link:hover {
+    color: #4cae4c; /* A darker shade of green for hover effects */
+}
+
+/* Footer styles */
+.footer {
+    background-color: #e3f2fd; /* Light blue for a fresh look */
+    color: #495057; /* Dark grey color for footer text */
+}
+
+.footer a {
+    color: #007bff; /* Default bootstrap blue for links for consistency */
+}
+
+/* Buttons styling */
+.btn-outline-success {
+    border-color: #5cb85c; /* Green border for the success buttons */
+    color: #5cb85c;
+}
+
+.btn-outline-success:hover {
+    background-color: #5cb85c;
+    color: #ffffff;
+}
+
+/* Form inputs */
+input, textarea, select {
+    border: 1px solid #ced4da; /* Standard bootstrap input styling */
+    padding: .375rem .75rem; /* Padding to make inputs easier to interact with */
+}
+
+/* Container adjustments for better spacing */
+.container {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+/* Custom card styling for blog posts */
+.card {
+    background-color: #ffffff; /* White background for clean appearance */
+    border: none; /* Remove borders for a modern look */
+    box-shadow: 0 1px 3px rgba(0,0,0,.1); /* Light shadow for depth */
+}
+
+.card-body {
+    padding: 1.25rem; /* Standard padding */
+}
+
+.card-title {
+    color: #333; /* Title in dark grey for contrast */
+    font-size: 1.5em; /* Larger font size for prominence */
+}
+
+.card-text {
+    color: #666; /* Lighter text for less emphasis */
+}
+
+/* Utility classes for text */
+.text-muted {
+    color: #6c757d !important; /* Bootstrap's standard muted text color */
+}
+.nav-item .nav-link {
+    transition: color 0.3s;
+}
+
+.nav-item .nav-link:hover {
+    color: #28a745;
+}

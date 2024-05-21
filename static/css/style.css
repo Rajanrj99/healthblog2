@@ -1,0 +1,38 @@
+body {
+    /* background-image: url('/static/images/bg-health.jpg'); Set a subtle background image */
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.navbar {
+    border-bottom: 3px solid #5cb85c;
+    border-radius: 0 0 20px 20px;
+}
+
+.footer {
+    background-color: #f5f5f5;
+    border-radius: 20px 20px 0 0;
+    border-top: 5px solid #5cb85c;
+}
+
+.card {
+    border-radius: 15px;
+}
+
+.btn-outline-success {
+    border-color: #5cb85c;
+    color: #5cb85c;
+}
+
+.btn-outline-success:hover {
+    background-color: #5cb85c;
+    color: #ffffff;
+}
+.navbar, .footer, .card {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+.nav-item .nav-link {
+    display: flex;
+    align-items: center;
+}

@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block title %}HealthBlog{% endblock %}
+
+{% block content %}
+<div class="container mt-3">
+    <!-- Section for the current user's blogs -->
+    {% if user.is_authenticated %}
+        <h2>My Blog</h2>
+        <div class="row">
+            {% for post in user_posts %}
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        {% if post.image %}
+                            <img src="{{ post.image.url }}" class="card-img-top" alt="{{ post.title }}" style="height: 200px; width: 100%; object-fit: cover;">
+                        {% endif %}
+                        <div class="card-body">
+                            <h5 class="card-title">{{ post.title }}</h5>
+                            <p class="card-text">{{ post.content|truncatewords:30|safe }}</p>
+                            <a href="{% url 'post-detail' pk=post.pk %}" class="btn btn-primary">Read More</a>
+                            <a href="{% url 'post-update' pk=post.pk %}" class="btn btn-secondary">Edit</a>
+                            <a href="{% url 'post-delete' pk=post.pk %}" class="btn btn-danger">Delete</a>
+                            <p class="card-text"><small class="text-muted">Posted on {{ post.date_posted|date:"Y-m-d H:i" }}</small></p>
+                        </div>
+                    </div>
+                </div>
+            {% empty %}
+                <p>You have not posted any blogs yet.</p>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    <!-- Section for all other blogs -->
+    <h2>{% if request.GET.q %}Search Results{% else %}All Blogs{% endif %}</h2>
+    <div class="row">
+        {% for post in posts %}
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    {% if post.image %}
+                        <img src="{{ post.image.url }}" class="card-img-top" alt="{{ post.title }}" style="height: 200px; width: 100%; object-fit: cover;">
+                    {% endif %}
+                    <div class="card-body">
+                        <h5 class="card-title">{{ post.title }}</h5>
+                        <p class="card-text">{{ post.content|truncatewords:30|safe }}</p>
+                        <a href="{% url 'post-detail' pk=post.pk %}" class="btn btn-primary">Read More</a>
+                        <p class="card-text"><small class="text-muted">Posted by {{ post.author.username }} on {{ post.date_posted|date:"Y-m-d H:i" }}</small></p>
+                    </div>
+                </div>
+            </div>
+        {% empty %}
+            <p>{% if request.GET.q %}No posts found matching your search criteria.{% else %}No other posts have been published yet.{% endif %}</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
