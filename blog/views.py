@@ -74,7 +74,7 @@ class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Post
     fields = ['title', 'content',"image"]  # Adjust fields based on your Post model
     template_name = 'post_update.html'
-    success_url = reverse_lazy('home') 
+    
 
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -83,6 +83,7 @@ class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     def test_func(self):
         post = self.get_object()
         return self.request.user == post.author
+    success_url = reverse_lazy('home') 
 class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Post
     template_name = 'post_delete.html'

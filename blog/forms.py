@@ -3,6 +3,8 @@ from .models import Comment, Post
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit, Layout, Field
 from tinymce.widgets import TinyMCE
+from django.core.exceptions import ValidationError
+import re
 class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
@@ -24,3 +26,4 @@ class PostForm(forms.ModelForm):
             Field('image', css_class='my-image-class'),
             Submit('submit', 'Submit', css_class='btn-success')
         )
+    
